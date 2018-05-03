@@ -35,10 +35,17 @@ function main()
 function search(kanzi)
 {
 	var a = [];
+	/*
 	for(var i=0; i<zihom.length; i++)
 		if(zihom[i][1].indexOf(kanzi)+1)
 			a.push(zihom[i][0]);
-	
+	*/
+	for(var i=0; i< dzyendziwprieu.length; i++)
+	{
+		if(dzyendziwprieu[i][1] === kanzi){
+			a.push(dzyendziwprieu[i][2]);
+		}
+	}
 	return a;
 }
 
@@ -102,8 +109,8 @@ function kagsin()
 	if(str){
 		removeShareButton();
 		createShareButton(str
-		+ "#segsyoxafu " 
-		+ ($("temsaku_xuheu").checked ? "#temsaku" : "") 
+		+ " " 
+		+ ($("temsaku_xuheu").checked ? "#themsiak" : "") 
 		+ "\n");
 		$("res2").innerHTML = str.replace("\n", "<br>");
 	} else {
