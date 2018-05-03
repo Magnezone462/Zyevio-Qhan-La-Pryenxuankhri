@@ -6,4 +6,4 @@
 
 ## 使い方
 
-<!--- [熟語変換器](https://sozysozbot.github.io/Zyukugo-xenkwan-ki/index.html)にアクセス、熟語を入れて「Xenkwan」を押そう -->
+[隋語漢羅変換器](https://magnezone462.github.io/Zyegnio-Qhan-La-Pryenxuankhri/index.html)にアクセス、熟語を入れて「pryènxuàn」を押そう -->

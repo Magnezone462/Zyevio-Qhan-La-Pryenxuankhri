@@ -122,7 +122,7 @@ function kagsin()
 function createShareButton(text){
 	$('tweet').innerHTML = "";
 	twttr.widgets.createShareButton(
-	'https://sozysozbot.github.io/Zyukugo-xenkwan-ki/index.html',
+	'https://magnezone462.github.io/Zyegnio-Qhan-La-Pryenxuankhri/index.html',
 	$('tweet'),
 	{ text: text });
 }
