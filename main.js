@@ -112,7 +112,7 @@ function kagsin()
 		+ " " 
 		+ ($("temsaku_xuheu").checked ? "#themsiak" : "") 
 		+ "\n");
-		$("res2").innerHTML = str.replace("\n", "<br>");
+		$("res2").innerHTML = str.replace(/\n/g, "<br>");
 	} else {
 		removeShareButton();
 		$("res2").innerHTML = "";
