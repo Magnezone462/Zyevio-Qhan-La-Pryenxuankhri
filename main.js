@@ -54,7 +54,8 @@ function xenkwanki_segseg(num,hanzis)
 	var res = '<div class="outer" id="outer_'+num+'">';
 	
 	for(var i=0; i<hanzis.length; i++) {
-		var k = hanzis[i];
+		var isSurrogate = hanzis.charCodeAt(i) == hanzis.codePointAt(i);
+		var k = isSurrogate ? hanzis[i] : String.fromCodePoint(hanzis.codePointAt(i));
 		res += '<div class="box">';
 			var index = num + '_' + i;
 			var info = search(k);
@@ -75,6 +76,10 @@ function xenkwanki_segseg(num,hanzis)
 			}
 			res += '</div>';
 		res += '</div>'
+
+		if (!isSurrogate) {
+			i++;
+		}
 	}
 	GLOBAL_INFO['box_'+num+'_length'] = hanzis.length;
 	
@@ -85,7 +90,7 @@ function xenkwanki_segseg(num,hanzis)
 // "正書法 熟語変換器" -> ["正書法","熟語変換器"]
 function textToArr(text)
 {
-	var kanzi = /([\u4E00-\u9FFF\uF900-\uFAFF])+/g;
+	var kanzi = /([\u3400-\u4DBF\u4E00-\u9FFF\uF900-\uFAFF]|[\uD840-\uD87F][\uDC00-\uDFFF])+/g;
 	var arr = [];
 	var tmp;
 	while ((tmp = kanzi.exec(text)) !== null)
