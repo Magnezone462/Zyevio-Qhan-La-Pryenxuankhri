@@ -43,7 +43,18 @@ function search(kanzi)
 	for(var i=0; i< dzyendziwprieu.length; i++)
 	{
 		if(dzyendziwprieu[i][1] === kanzi){
-			a.push(dzyendziwprieu[i][2]);
+			a.push(dzyendziwprieu[i][2]
+				.replace(/à/g, "â")
+				.replace(/è/g, "ê")
+				.replace(/ì/g, "î")
+				.replace(/ò/g, "ô")
+				.replace(/ù/g, "û")
+				.replace(/ỳ/g, "ŷ")
+				.replace(/ə̀/g, "ə̂")
+				.replace(/l\*r/g, "lr")
+				.replace(/g\*/g, "g")
+				.replace(/\*/g, "ʼ")
+			);
 		}
 	}
 	return a;
