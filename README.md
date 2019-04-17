@@ -1,4 +1,4 @@
-# Zyeŋió Qhàn-La Pryènxuànkhrì
+# Zyeŋió Qhân-La Pryênxuânkhrî
 隋語の漢→[羅](https://github.com/Magnezone462/Zyegnio/blob/master/隋語拼音方案.pdf)変換をします。字音の選択は手動です。
 
 ## 元データ
@@ -6,4 +6,4 @@
 
 ## 使い方
 
-[隋語漢羅変換器](https://magnezone462.github.io/Zyegnio-Qhan-La-Pryenxuankhri/index.html)にアクセス、熟語を入れて「pryènxuàn」を押そう
+[隋語漢羅変換器](https://magnezone462.github.io/Zyegnio-Qhan-La-Pryenxuankhri/index.html)にアクセス、漢字を入れて「pryênxuân」を押そう
