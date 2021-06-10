@@ -23,12 +23,12 @@ function main()
 
 	for(var i=0; i<arr.length; i++)
 		$("res").innerHTML += xenkwanki_segseg(i,arr[i]);
-	
+
 	GLOBAL_INFO.box_length = arr.length;
 	GLOBAL_INFO.orig_strs = arr;
-	
+
 	kagsin();
-	
+
 	return;
 }
 
@@ -42,18 +42,8 @@ function search(kanzi)
 	*/
 	for(var i=0; i< dzyendziwprieu.length; i++)
 	{
-		if(dzyendziwprieu[i][1] === kanzi){
-			a.push(dzyendziwprieu[i][2]
-				.replace(/à/g, "â")
-				.replace(/è/g, "ê")
-				.replace(/ì/g, "î")
-				.replace(/ò/g, "ô")
-				.replace(/ù/g, "û")
-				.replace(/ỳ/g, "ŷ")
-				.replace(/ə̀/g, "ə̂")
-				.replace(/l\*r/g, "lr")
-				.replace(/g\*/g, "g")
-				.replace(/\*/g, "ʼ")
+		if(dzyendziwprieu[i][0] === kanzi){
+			a.push(dzyendziwprieu[i][1]
 			);
 		}
 	}
@@ -63,19 +53,19 @@ function search(kanzi)
 function xenkwanki_segseg(num,hanzis)
 {
 	var res = '<div class="outer" id="outer_'+num+'">';
-	
+
 	for(var i=0; i<hanzis.length; i++) {
 		var isSurrogate = hanzis.charCodeAt(i) == hanzis.codePointAt(i);
 		var k = isSurrogate ? hanzis[i] : String.fromCodePoint(hanzis.codePointAt(i));
 		res += '<div class="box">';
 			var index = num + '_' + i;
 			var info = search(k);
-			
+
 			if(info.length == 1)
 				res += '<div class="kanzi"><ruby><rb>' + k + '</rb><rt id="box_' + index + '">' + zihom_to_gendaikana(info[0]) + '</rt></ruby>'  +'</div>';
 			else res += '<div class="kanzi"><ruby><rb>' + k + '</rb><rt id="box_' + index + '"></rt></ruby>'  +'</div>';
 			res += '<div class="zihomlist">';
-			
+
 			if(info.length == 1) {
 				res += '<label class="zihom"><input type="radio" name="radio_' + index + '" class="radio" value="' + info[0] + '" checked><span class="zihomtext">' + info[0] + '</span></label>';
 				GLOBAL_INFO["box_" + index] = info[0];
@@ -93,7 +83,7 @@ function xenkwanki_segseg(num,hanzis)
 		}
 	}
 	GLOBAL_INFO['box_'+num+'_length'] = hanzis.length;
-	
+
 	res += '</div>';
 	return res;
 }
@@ -106,7 +96,7 @@ function textToArr(text)
 	var tmp;
 	while ((tmp = kanzi.exec(text)) !== null)
 		arr.push(tmp[0]);
-	
+
 	return arr;
 }
 
@@ -125,8 +115,8 @@ function kagsin()
 	if(str){
 		removeShareButton();
 		createShareButton(str
-		+ " " 
-		+ ($("temsaku_xuheu").checked ? "#themsiak" : "") 
+		+ " "
+		+ ($("temsaku_xuheu").checked ? "#themsiak" : "")
 		+ "\n");
 		$("res2").innerHTML = str.replace(/\n/g, "<br>");
 	} else {
@@ -138,7 +128,7 @@ function kagsin()
 function createShareButton(text){
 	$('tweet').innerHTML = "";
 	twttr.widgets.createShareButton(
-	'https://magnezone462.github.io/Zyegnio-Qhan-La-Pryenxuankhri/index.html',
+	'https://magnezone462.github.io/Zyevio-Qhan-La-Pryenxuankhri/index.html',
 	$('tweet'),
 	{ text: text });
 }
@@ -147,9 +137,9 @@ function removeShareButton(){$('tweet').innerHTML=""}
 
 function generate_str(){
 	var res = "";
-	
+
 	var enable = false;
-	
+
 	for(var i=0; i<GLOBAL_INFO.box_length;i++){
 		res += GLOBAL_INFO.orig_strs[i] + " "
 		for(var j=0;j<GLOBAL_INFO["box_"+i+"_length"];j++){
@@ -162,8 +152,8 @@ function generate_str(){
 		}
 		res += "\n"
 	}
-	
+
 	if(!enable) return null;
-	
+
 	return res;
 }
